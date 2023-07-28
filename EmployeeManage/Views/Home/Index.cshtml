@@ -1,0 +1,75 @@
+﻿@model IEnumerable<EmployeeManage.ViewModels.Responses.EmployeeInfo>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Index Page</title>
+</head>
+<body>
+    <section class="content">
+        <div class="row">
+            <div class="col-xl-">
+                <div class="box-header">
+                    <h3 class="box-title">All Employees</h3>
+                </div>
+                <!-- /.box -->
+                <div class="box">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th>Nationality</th>
+                                    <th>Company</th>
+                                    <th>Branch</th>
+                                    <th>Country</th>
+                                    <th>@Html.DisplayNameFor(model => model.Status)</th>
+                                    <th></th>
+
+                                </tr>
+                            </thead>
+                            <tbody style="width:auto">
+                                @foreach (var emp in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => emp.EmployeeName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => emp.DepartmentName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => emp.Nationality)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => emp.CompanyName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => emp.BranchName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => emp.CountryName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => emp.Status)
+                                        </td>
+                                        <td>
+                                            
+                                            <a asp-controller="Home" asp-action="Edit" asp-route-id="@emp.EmployeeID"class="fa fa-edit"></a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+</body>
+</html>

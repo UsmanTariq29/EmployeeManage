@@ -1,0 +1,63 @@
+﻿
+@model IEnumerable<EmployeeManage.ViewModels.Responses.BarcodeResponse>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <section class="content">
+        <div class="row">
+            <div class="col-xl-">
+                <div class="box-header">
+                    <h3 class="box-title">All Barcodes</h3>
+                </div>
+                <!-- /.box -->
+                <div class="box">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>GeneratedBarcode</th>
+                                    <th>Item</th>
+
+                                </tr>
+                            </thead>
+                            <tbody style="width:auto">
+                                @foreach (var emp in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => emp.ItemId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => emp.ItemName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => emp.ItemBarcode)
+                                        </td>
+                                        @*<td>
+
+                                            <a asp-controller="Barcode" asp-action="EditBarcode" asp-route-id="@emp.ItemId" class="fa fa-edit"></a>
+
+                                        </td>*@
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+
+
+</body>
+</html>
