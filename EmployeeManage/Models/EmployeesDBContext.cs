@@ -2,8 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 
 
-#nullable disable
-
 namespace EmployeeManage.Models
 {
     public partial class EmployeesDBContext : DbContext

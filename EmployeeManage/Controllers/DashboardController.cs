@@ -1,9 +1,6 @@
 ﻿using EmployeeManage.Repository.Interface;
 using EmployeeManage.ViewModels.Responses;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,7 +11,7 @@ namespace EmployeeManage.Controllers
         private readonly IDashboardRepo _dashboardRepo;
         private readonly IDocument _document;
 
-        public DashboardController(IDashboardRepo dashboardRepo,IDocument document)
+        public DashboardController(IDashboardRepo dashboardRepo, IDocument document)
         {
             _dashboardRepo = dashboardRepo;
             _document = document;
@@ -33,9 +30,8 @@ namespace EmployeeManage.Controllers
         }
         public async Task<IActionResult> DownloadDocument(int id, CancellationToken token = default)
         {
-            var document = await _document.GetDocument(id,token);
+            var document = await _document.GetDocument(id, token);
             return new FileStreamResult(document.GetStream(), document.ContentType);
         }
-
     }
 }
